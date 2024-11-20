@@ -177,10 +177,12 @@ export function MainScreenComponent({ initialFullBodyPhotos = [] }: { initialFul
     setIsGenerating(true);
     try {
       const input = {
-        garm_img: clothingPhoto,
-        human_img: selectedPhoto,
+        garm_img: `${process.env.NEXT_PUBLIC_BASE_URL}${clothingPhoto}`,
+        human_img: `${process.env.NEXT_PUBLIC_BASE_URL}${selectedPhoto}`,
         garment_des: "clothing item"
       };
+
+      console.log("input for replicate:", input)
 
       const response = await fetch('/api/replicate', {
         method: 'POST',
