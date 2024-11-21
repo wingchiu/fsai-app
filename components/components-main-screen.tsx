@@ -208,8 +208,9 @@ export function MainScreenComponent({ initialFullBodyPhotos = [] }: { initialFul
   };
 
   const resetGeneration = () => {
-    setResult(null)
-    setClothingPhoto(null)
+    setResult(null);
+    // Don't clear the clothing photo
+    // setClothingPhoto(null);
   }
 
   const handleDeletePhoto = async (indexToDelete: number) => {
