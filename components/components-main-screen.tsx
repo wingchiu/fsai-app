@@ -179,6 +179,7 @@ export function MainScreenComponent({ initialFullBodyPhotos = [] }: { initialFul
       const input = {
         garm_img: `${process.env.NEXT_PUBLIC_BASE_URL}${clothingPhoto}`,
         human_img: `${process.env.NEXT_PUBLIC_BASE_URL}${selectedPhoto}`,
+        crop: true,
         garment_des: "clothing item"
       };
 

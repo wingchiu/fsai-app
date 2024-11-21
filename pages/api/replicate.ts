@@ -11,9 +11,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'POST') {
     try {
       const { input, userId } = req.body;
+      const timestamp = Date.now();
+      
       const output = await replicate.run("cuuupid/idm-vton:c871bb9b046607b680449ecbae55fd8c6d945e0a1948644bf2361b3d021d3ff4", { input });
       
-      const fileName = `${userId}-result.jpg`;
+      const fileName = `${userId}-result-${timestamp}.jpg`;
       await writeFile(path.join(process.cwd(), 'public', 'images', fileName), output);
             
       res.status(200).json({ fileName });
